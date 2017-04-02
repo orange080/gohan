@@ -1,0 +1,9 @@
+<h1>検索結果</h1>
+
+<% @recipes.each do |recipe| %>
+    <%= recipe['recipeId'] %>
+    <%= recipe['recipeTitle'] %>
+    <%= recipe['recipeUrl'] %>
+    <%= image_tag recipe['foodImageUrl'], size: '50x50' %>
+    <hr>
+<% end %>
