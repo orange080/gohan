@@ -6,3 +6,11 @@
 <%= select_tag 'recipeid', options_for_select(["10", "11", "12", "13", "14"]) %>
 
 <input type="submit" name="commit" value="検索" />
+
+
+<div class="search">
+  <%= form_tag root_path , method: :get do %>
+    <%= text_field_tag :p , params[:p], placeholder: "キーワードを入力", required: true %>
+    <%= submit_tag "食べたい物を検索", name: nil , class: "btn btn-success", data: { disable_with: "検索中..."} %>
+  <% end %>
+</div>
