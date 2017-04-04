@@ -1,16 +1,38 @@
-<h1>HomePages#home</h1>
-<p>Find me in app/views/home_pages/home.html.erb</p>
+<h1>こんにちは。</h1>
+<h2>あなたが食べたい物を下記より選択してください</h2>
 
-[検索画面]
-
-<%= select_tag 'recipeid', options_for_select(["10", "11", "12", "13", "14"]) %>
-
-<input type="submit" name="commit" value="検索" />
-
-
-<div class="search">
-  <%= form_tag root_path , method: :get do %>
-    <%= text_field_tag :p , params[:p], placeholder: "キーワードを入力", required: true %>
+<div class="search" style="width: 400px; margin: 0 auto;" >
+  <%= form_tag search_path , method: :get do %>
+    <%= select_tag 'p', options_for_select(
+      {
+        '肉の料理' => 10,
+        '魚の料理' => 11,
+        '野菜をがっつり食べたい時は' => 12,
+        'ご飯もの' => 14, 
+        'パスタ' => 15,
+        '麺・粉物料理' => 16,
+        '汁物・スープ' => 17,
+        'サラダ' => 18,
+        'お菓子' => 21,
+        'パンが好きな人はぜひ' => 22, 
+        '寒い冬にはやっぱり鍋料理ですね' => 23,
+        '西洋料理' => 25,
+        '定番の肉料理' => 31,
+        '定番の魚料理' => 32,
+        '卵料理' => 33,
+        '果物' => 34, 
+        '大豆・豆腐料理' => 35,
+        '中華料理' => 41,
+        '韓国料理' => 42, 'イタリア料理' => 43,
+        'フランス料理' => 43,
+        'エスニック料理・中南米' => 46, 
+        '沖縄料理' => 47
+      }
+    ) %>
     <%= submit_tag "食べたい物を検索", name: nil , class: "btn btn-success", data: { disable_with: "検索中..."} %>
   <% end %>
+</div>
+
+<div style="position:absolute; bottom:10px; right:10px;width:100%;text-align:center;" >
+<%= mail_to '#', 'お問い合わせはこちら' %>
 </div>

@@ -7,7 +7,8 @@ class SearchController < ApplicationController
       
       # (10) → 肉
       # 本当はここを自由変えられるようにする
-      response = RakutenWebService::Recipe.ranking(params[:p])
+      @category_id = params[:p]
+      response = RakutenWebService::Recipe.ranking(@category_id)
       @recipes = response.first(10)
   end
 

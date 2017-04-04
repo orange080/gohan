@@ -49,3 +49,6 @@ group :development do
 end
 
 gem 'rakuten_web_service'
+
+gem 'pry-byebug', group: :development
+
