@@ -1,0 +1,31 @@
+
+[1mFrom:[0m /home/ubuntu/workspace/gohan/app/controllers/search_controller.rb @ line 28 SearchController#index:
+
+     [1;34m3[0m: [32mdef[0m [1;34mindex[0m
+     [1;34m4[0m:     [1;34m# recipeid = params[:p][0m
+     [1;34m5[0m:     [1;34m# パラメータを取得する（例 : お肉）[0m
+     [1;34m6[0m:     [1;34m# category_id = params[:category_id][0m
+     [1;34m7[0m: 
+     [1;34m8[0m:     [1;34m# (10) → 肉[0m
+     [1;34m9[0m:     [1;34m# 本当はここを自由変えられるようにする[0m
+    [1;34m10[0m:     @category_id = params[[33m:p[0m]
+    [1;34m11[0m:     response = [1;34;4mRakutenWebService[0m::[1;34;4mRecipe[0m.ranking(@category_id)
+    [1;34m12[0m:     @recipes = response.first([1;34m10[0m)
+    [1;34m13[0m: 
+    [1;34m14[0m:     [1;34m# ぐるなび API を呼ぶ（仮です）[0m
+    [1;34m15[0m: 
+    [1;34m16[0m:     [1;34m# 後ほど必ず環境変数で渡すこと[0m
+    [1;34m17[0m:     key_id = [31m[1;31m'[0m[31m6b1ddb87254fb81c5a5f00e136e6b4c8[1;31m'[0m[31m[0m
+    [1;34m18[0m: 
+    [1;34m19[0m:     [1;34m# API をコールしています[0m
+    [1;34m20[0m:     [1;34m# 右側にあるハッシュはパラメータです[0m
+    [1;34m21[0m:     [1;34m# 以下の URL を参考にして，パラメータを詳細化しましょう[0m
+    [1;34m22[0m:     [1;34m# http://api.gnavi.co.jp/api/manual/restsearch/[0m
+    [1;34m23[0m:     res = [1;34;4mFaraday[0m.get [31m[1;31m'[0m[31mhttps://api.gnavi.co.jp/RestSearchAPI/20150630/[1;31m'[0m[31m[0m, { [35mkeyid[0m: key_id, [35mformat[0m: [31m[1;31m'[0m[31mjson[1;31m'[0m[31m[0m, [35mbuffet[0m: [1;34m1[0m }
+    [1;34m24[0m: 
+    [1;34m25[0m:     [1;34m# API をコールした結果が入ってくるので，ここを加工する必要があります[0m
+    [1;34m26[0m:     body = [1;34;4mJSON[0m.parse(res.body)
+    [1;34m27[0m:     binding.pry
+ => [1;34m28[0m:     @restaurants = body
+    [1;34m29[0m: [32mend[0m
+
