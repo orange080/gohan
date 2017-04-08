@@ -15,7 +15,6 @@ class SearchController < ApplicationController
       # ぐるなび API を呼ぶ（仮です）
 
       # 後ほど必ず環境変数で渡すこと
-      # key_id = '6b1ddb87254fb81c5a5f00e136e6b4c8'
 
       # API をコールしています
       # 右側にあるハッシュはパラメータです
