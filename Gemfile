@@ -57,3 +57,7 @@ gem 'pry-byebug', group: :development
 
 gem 'faraday'
 
+group :production do
+  gem 'rails_12factor'
+end
+
