@@ -3,7 +3,8 @@
 <div class="container-fluid">
   <div class=”row”>
     <div class="panel panel-default col-sm-6" >
-      <div class="panel-heading">自炊 <br>Powered by <a href="https://recipe.rakuten.co.jp/">楽天レシピ</a></div>
+      <div class="panel-heading"><span class="label label-warning" style="font-size: 25px;" >自炊はこちら</span> 
+      <br><br>Powered by <a href="https://recipe.rakuten.co.jp/">楽天レシピ</a></div>
         <div class="panel-body">
           <% @recipes.each do |recipe| %>
               <table class="table table-bordered table-striped">
@@ -12,7 +13,7 @@
                 <tr><th scope="row" style="width:180px;" >【料理時間】</th><th><%=  recipe['recipeIndication'] %></th></tr>
                 <tr><th scope="row" style="width:180px;" >【料理コスト】</th><th><%=  recipe['recipeCost'] %></th></tr>
               </table>
-              <%= image_tag recipe['foodImageUrl'], size: '150x150' %>
+              <%= image_tag recipe['foodImageUrl'], size: '200x150' %>
 			        <%= link_to 'レシピ詳細リンク', recipe['recipeUrl'], class: "btn btn-success btn-lg" %>
               <hr>
           <% end %>
@@ -21,19 +22,20 @@
   </div>  
   <div class=”row”>
     <div class="panel panel-default col-sm-6" >
-      <div class="panel-heading">外食 ※2017年4月現在では東京都のみのサービスになります <br>Powered by <a href="https://www.gnavi.co.jp/">ぐるなび</a></div>
+      <div class="panel-heading"><span class="label label-primary" style="font-size: 25px;" >外食はこちら</span>
+      <br><br>Powered by <a href="https://www.gnavi.co.jp/">ぐるなび</a></div>
         <div class="panel-body">
           <% @restaurants.each do |restaurant| %>
-            【店舗名】<%= restaurant['name'] %><br>
-            【住所】<%= restaurant['address'] %><br>
-            【営業時間】<%= truncate(restaurant['opentime'], length: 50) %><br>
-            【休日】<%= restaurant['holiday'] %><br>
-            【アクセス】<%= restaurant['access']['line'] %>
-            <%= restaurant['access']['station'] %>
-            徒歩<%= restaurant['access']['walk'] %>分<br>
-            【おすすめポイント】<%= truncate(restaurant['pr']['pr_short'], length: 50) %><br>
-            <%= image_tag restaurant['image_url']['shop_image1'], size: '100x100' %>
-            <%= link_to '店舗詳細情報はこちら', restaurant['url'], class: "btn btn-mini btn-danger" %>
+            <table class="table table-bordered table-striped">
+             <tr><th scope="row" style="width:150px;" >【店舗名】</th><th><%= restaurant['name'] %></th></tr>
+             <tr><th scope="row" style="width:150px;" >【住所】</th><th><%= restaurant['address'] %></th></tr>
+             <tr><th scope="row" style="width:150px;" >【営業時間】</th><th><%= truncate(restaurant['opentime'], length: 50) %></th></tr>
+             <tr><th scope="row" style="width:150px;" >【休日】</th><th><%= restaurant['holiday'] %></th></tr>
+             <tr><th scope="row" style="width:150px;" >【アクセス】</th><th><%= restaurant['access']['line'] %><%= restaurant['access']['station'] %>徒歩<%= restaurant['access']['walk'] %>分</th></tr>
+             <tr><th scope="row" style="width:150px;" >【ポイント】</th><th><%= truncate(restaurant['pr']['pr_short'], length: 50) %></th></tr>
+            </table>
+             <%= image_tag restaurant['image_url']['shop_image1'], size: '100x100' %>
+             <%= link_to '店舗詳細情報はこちら', restaurant['url'], class: "btn btn-mini btn-danger" %>
             <hr>
           <% end %>
         </div>

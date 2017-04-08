@@ -54,6 +54,7 @@ class SearchController < ApplicationController
         pref: 'PREF13',
         buffet: 1 ,
         freeword: gurunabiword,
+        hit_per_page: 5 ,
       }
       
       # res = Faraday.get 'https://api.gnavi.co.jp/RestSearchAPI/20150630/', { keyid: Rails.application.secrets.key_id, format: 'json', buffet: 1 }

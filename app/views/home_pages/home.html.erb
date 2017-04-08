@@ -1,6 +1,6 @@
 <h1>こんにちは。</h1>
 <h2>あなたが食べたい物を下記より選択してください</h2>
-<div class="search" style="width: 400px; margin: 0 auto;" >
+<div class="search" style="width: 350px; margin: 0 auto;" >
   <%= form_tag search_path , method: :get do %>
     <%= select_tag 'p', options_for_select(
       {
@@ -21,11 +21,12 @@
     ) %>
     <%= submit_tag "食べたい物を検索", name: nil , class: "btn btn-success", data: { disable_with: "検索中..."} %>
   <% end %>
+   <%= image_tag 'top.jpg',:size => "350x300", :align=> "auto" %>
 </div>
 
-
-<h3>本サービスは、テスト中ですので東京都のお店しか検索できません。ご了承ください。</h3>
-
+ 
 <div style="position:absolute; bottom:10px; right:10px;width:100%;text-align:center;" >
+<span style="text-align: center" >本サービスは、テスト中ですので東京都のお店しか検索できません。ご了承ください。</span>
 <%= mail_to '#', 'お問い合わせはこちら' %>
 </div>
+
